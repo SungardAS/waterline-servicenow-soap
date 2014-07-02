@@ -2,13 +2,13 @@
   "name": "waterline-servicenow-soap",
   "version": "0.0.1",
   "description": "waterline-servicenow-soap adapter for Sails / Waterline",
-  "main": "adapter.js",
+  "main": "lib/adapter.js",
   "scripts": {
     "test": "node test/integration/runner -R spec -b"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/balderdashy/waterline-%s.git"
+    "url": "git://github.com/kmcgrath/waterline-servicenow-soap.git"
   },
   "keywords": [
     "service-now",
