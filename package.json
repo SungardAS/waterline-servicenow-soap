@@ -1,0 +1,45 @@
+{
+  "name": "waterline-servicenow-soap",
+  "version": "0.0.1",
+  "description": "waterline-servicenow-soap adapter for Sails / Waterline",
+  "main": "adapter.js",
+  "scripts": {
+    "test": "node test/integration/runner -R spec -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/balderdashy/waterline-%s.git"
+  },
+  "keywords": [
+    "service-now",
+    "servicenow",
+    "waterline-servicenow-soap",
+    "adapter",
+    "sails",
+    "waterline",
+    "sails.js",
+    "plugin"
+  ],
+  "author": "kmcgrath",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "soap": "^0.4.5",
+    "lodash": "^2.4.1",
+    "underscore.string": "^2.3.3",
+    "async": "^0.9.0"
+  },
+  "devDependencies": {
+    "waterline-adapter-tests": "~0.10.0",
+    "mocha": "*",
+    "captains-log": "~0.11.0"
+  },
+  "waterlineAdapter": {
+    "type": "waterline-servicenow-soap",
+    "interfaces": [
+      "semantic",
+      "queryable"
+    ],
+    "waterlineVersion": "~0.10.0"
+  }
+}
