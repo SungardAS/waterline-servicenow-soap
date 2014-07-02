@@ -14,31 +14,19 @@
  */
 
 var util = require('util');
+var utils = require('waterline-adapter-tests/lib/utils');
 var mocha = require('mocha');
 var log = new (require('captains-log'))();
 var TestRunner = require('waterline-adapter-tests');
-var Adapter = require('../../');
+var Adapter = require('../../waterline-servicenow-soapAdapter');
+var Path = require('path');
+var _ = require('lodash');
 
 
 
 // Grab targeted interfaces from this adapter's `package.json` file:
 var package = {};
-var interfaces = [];
-try {
-    package = require('../../package.json');
-    interfaces = package['waterlineAdapter'].interfaces;
-}
-catch (e) {
-    throw new Error(
-    '\n'+
-    'Could not read supported interfaces from `waterlineAdapter.interfaces`'+'\n' +
-    'in this adapter\'s `package.json` file ::' + '\n' +
-    util.inspect(e)
-    );
-}
-
-
-
+var interfaces = ['queryable'];
 
 
 log.info('Testing `' + package.name + '`, a Sails/Waterline adapter.');
@@ -52,42 +40,52 @@ console.log();
 
 
 
-/**
- * Integration Test Runner
- *
- * Uses the `waterline-adapter-tests` module to
- * run mocha tests against the specified interfaces
- * of the currently-implemented Waterline adapter API.
- */
-new TestRunner({
-
-    // Load the adapter module.
-    adapter: Adapter,
-
-    // Default adapter config to use.
-    config: {
-        schema: false
+// Attach config to adapter
+// this.adapter.config = this.config;
+global.Connections = {
+  'test': {
+    url: {
+      protocol: 'https',
+      host: 'sandbox.service-now.com',
     },
+    username: 'admin',
+    password: 'admin',
+    schema: false
+  }
+};
 
-    // The set of adapter interfaces to test against.
-    // (grabbed these from this adapter's package.json file above)
-    interfaces: interfaces
+global.Connections.test.adapter = 'wl_tests';
 
-    // Most databases implement 'semantic' and 'queryable'.
-    //
-    // As of Sails/Waterline v0.10, the 'associations' interface
-    // is also available.  If you don't implement 'associations',
-    // it will be polyfilled for you by Waterline core.  The core
-    // implementation will always be used for cross-adapter / cross-connection
-    // joins.
-    //
-    // In future versions of Sails/Waterline, 'queryable' may be also
-    // be polyfilled by core.
-    //
-    // These polyfilled implementations can usually be further optimized at the
-    // adapter level, since most databases provide optimizations for internal
-    // operations.
-    //
-    // Full interface reference:
-    // https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md
+// Globalize Adapter
+global.Adapter = Adapter;
+
+// Build an array of files to test
+var filter = '\\.(' + ['js'].join('|') + ')$';
+
+var files = [];
+
+interfaces.forEach(function(interface) {
+  var interfacePath = Path.resolve(__dirname,'../interfaces/' + interface);
+  files = files.concat(utils.fileLookup(interfacePath, filter, true));
+});
+
+// Build a Mocha Runner
+var test = new mocha(_.merge({
+  timeout: 6000
+}, {}));
+
+// Set Global Placeholders for Ontologies
+global.Associations = {};
+global.Semantic = {};
+global.Queryable = {};
+global.Migratable = {};
+
+// Allow Adapter to be a global without warning about a leak
+test.globals([Adapter, Connections, Associations, Semantic, Queryable]);
+test.files = files;
+
+console.time('time elapsed');
+test.run(function(err) {
+  console.timeEnd('time elapsed');
+  process.exit(0);
 });

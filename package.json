@@ -30,6 +30,7 @@
     "async": "^0.9.0"
   },
   "devDependencies": {
+    "waterline": "~0.10.0",
     "waterline-adapter-tests": "~0.10.0",
     "mocha": "*",
     "captains-log": "~0.11.0"

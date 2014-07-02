@@ -1,8 +1,8 @@
 ![image_squidhome@2x.png](http://i.imgur.com/RIvu9.png)
 
-# waterline-waterline-servicenow-soap
+# waterline-servicenow-soap
 
-Provides easy access to `waterline-servicenow-soap` from Sails.js & Waterline.
+Provides easy access to ServiceNow's SOAP resources from Sails.js & Waterline.
 
 This module is a Waterline/Sails adapter, an early implementation of a rapidly-developing, tool-agnostic data standard.  Its goal is to provide a set of declarative interfaces, conventions, and best-practices for integrating with all sorts of data sources.  Not just databases-- external APIs, proprietary web services, or even hardware.
 
