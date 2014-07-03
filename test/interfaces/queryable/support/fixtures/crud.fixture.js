@@ -3,8 +3,12 @@
  */
 
 var Waterline = require('waterline');
+var snBaseModel = require('../../../../../lib/snBaseModel'),
+    _ = require('lodash');
 
-module.exports = Waterline.Collection.extend({
+var base = _.merge({},snBaseModel);
+
+var collection = _.merge(base, {
 
   identity: 'incident',
   connection: 'queryable',
@@ -14,7 +18,20 @@ module.exports = Waterline.Collection.extend({
     sys_id: {
       primaryKey: true,
       type: 'string'
+    },
+    number: {
+      type: 'string'
+    },
+    sys_updated_on: {
+      type: 'date'
+    },
+    description: {
+      type: 'string'
+    },
+    short_description: {
+      type: 'string'
     }
   }
-
 });
+
+module.exports = Waterline.Collection.extend(collection);

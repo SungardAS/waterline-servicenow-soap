@@ -46,7 +46,7 @@ global.Connections = {
   'test': {
     url: {
       protocol: 'https',
-      host: 'sandbox.service-now.com',
+      host: 'demo002.service-now.com',
     },
     username: 'admin',
     password: 'admin',
@@ -71,7 +71,7 @@ interfaces.forEach(function(interface) {
 
 // Build a Mocha Runner
 var test = new mocha(_.merge({
-  timeout: 6000
+  timeout: 10000
 }, {}));
 
 // Set Global Placeholders for Ontologies
