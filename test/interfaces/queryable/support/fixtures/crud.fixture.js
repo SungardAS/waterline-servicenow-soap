@@ -15,12 +15,16 @@ var collection = _.merge(base, {
   migrate: 'safe',
 
   attributes: {
+    active: 'boolean',
     sys_id: {
       primaryKey: true,
       type: 'string'
     },
     number: {
       type: 'string'
+    },
+    sys_created_on: {
+      type: 'date'
     },
     sys_updated_on: {
       type: 'date'
