@@ -16,8 +16,62 @@ $ npm install waterline-servicenow-soap
 ```
 
 
+### Configuration
+
+The following config options are available along with their default values:
+
+```javascript
+config: {
+  url: {
+    host: 'demo002.service-now.com',
+  },
+  username: null,
+  password: null
+};
+```
+
 
 ### Usage
+
+```javascript
+var Waterline = require('waterline');
+var snBaseModel = require('waterline-servicenow-soap/lib/model/snBaseModel'),
+    _ = require('lodash');
+
+var base = _.merge({},snBaseModel);
+
+var collection = _.merge(base, {
+
+  identity: 'incident',
+  connection: 'queryable',
+  migrate: 'safe',
+
+  attributes: {
+    active: 'boolean',
+    sys_id: {
+      primaryKey: true,
+      type: 'string'
+    },
+    number: {
+      type: 'string'
+    },
+    sys_created_on: {
+      type: 'date'
+    },
+    sys_updated_on: {
+      type: 'date'
+    },
+    description: {
+      type: 'string'
+    },
+    short_description: {
+      type: 'string'
+    }
+  }
+});
+
+module.exports = Waterline.Collection.extend(collection);
+```
 
 
 This adapter exposes the following methods:
@@ -46,29 +100,7 @@ This adapter exposes the following methods:
 ###### `count()`
 
 + **Status**
-  + Partial
-
-
-### Interfaces
-
->TODO:
->Specify the interfaces this adapter will support.
->e.g. `This adapter implements the [semantic]() and [queryable]() interfaces.`
-> For more information, check out this repository's [FAQ](./FAQ.md) and the [adapter interface reference](https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md) in the Sails docs.
-
-
-### Development
-
-Check out **Connections** in the Sails docs, or see the `config/connections.js` file in a new Sails project for information on setting up adapters.
-
-## Getting started
-It's usually pretty easy to add your own adapters for integrating with proprietary systems or existing open APIs.  For most things, it's as easy as `require('some-module')` and mapping the appropriate methods to match waterline semantics.  To get started:
-
-1. Fork this repository
-2. Set up your `README.md` and `package.json` file.  Sails.js adapter module names are of the form sails-*, where * is the name of the datastore or service you're integrating with.
-3. Build your adapter.
-
-
+  + Partial - only works when aggregate plugin is enabled.
 
 
 ### Running the tests
