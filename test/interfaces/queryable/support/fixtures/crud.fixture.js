@@ -3,7 +3,7 @@
  */
 
 var Waterline = require('waterline');
-var snBaseModel = require('../../../../../lib/snBaseModel'),
+var snBaseModel = require('../../../../../lib/model/snBaseModel'),
     _ = require('lodash');
 
 var base = _.merge({},snBaseModel);
