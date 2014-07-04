@@ -28,10 +28,10 @@
     "lodash": "^2.4.1",
     "underscore.string": "^2.3.3",
     "async": "^0.9.0",
-    "moment": "~2.7.0"
+    "moment": "~2.7.0",
+    "waterline": "~0.10.0"
   },
   "devDependencies": {
-    "waterline": "~0.10.0",
     "waterline-adapter-tests": "~0.10.0",
     "mocha": "*",
     "captains-log": "~0.11.0",
