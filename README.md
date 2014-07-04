@@ -34,9 +34,9 @@ config: {
 ### Usage
 
 ```javascript
-var Waterline = require('waterline');
-var snBaseModel = require('waterline-servicenow-soap/lib/model/snBaseModel'),
-    _ = require('lodash');
+var Waterline = require('waterline'),
+    _ = require('lodash'),
+    snBaseModel = require('waterline-servicenow-soap/lib/model/snBaseModel');
 
 var base = _.merge({},snBaseModel);
 
@@ -44,7 +44,6 @@ var collection = _.merge(base, {
 
   identity: 'incident',
   connection: 'queryable',
-  migrate: 'safe',
 
   attributes: {
     active: 'boolean',
