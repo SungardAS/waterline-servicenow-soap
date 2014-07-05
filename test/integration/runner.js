@@ -87,5 +87,5 @@ test.files = files;
 console.time('time elapsed');
 test.run(function(err) {
   console.timeEnd('time elapsed');
-  process.exit(0);
+  process.exit(err);
 });
