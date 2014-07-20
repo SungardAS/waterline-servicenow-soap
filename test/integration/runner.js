@@ -71,7 +71,7 @@ interfaces.forEach(function(interface) {
 
 // Build a Mocha Runner
 var test = new mocha(_.merge({
-  timeout: 10000
+  timeout: 20000
 }, {}));
 
 // Set Global Placeholders for Ontologies

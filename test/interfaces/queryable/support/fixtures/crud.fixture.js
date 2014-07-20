@@ -33,6 +33,9 @@ var collection = _.merge(base, {
     },
     short_description: {
       type: 'string'
+    },
+    severity: {
+      type: 'integer'
     }
   }
 });
