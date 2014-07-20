@@ -180,7 +180,6 @@ describe('Queryable Interface', function() {
             if(err) return done(err);
             Queryable.Incident.findOne(incidents[2].sys_id).exec(function(err, incident) {
               end = incident.sys_created_on;
-              console.log(end);
               done();
             });
           });
@@ -192,7 +191,6 @@ describe('Queryable Interface', function() {
         ////////////////////////////////////////////////////
 
         it('should find 3 records with symbolic <', function(done) {
-          console.log(end);
           Queryable.Incident.find({ short_description: uid, sys_created_on: {'<=': end} }, function(err, incidents) {
             assert(!err);
             assert(Array.isArray(incidents));
