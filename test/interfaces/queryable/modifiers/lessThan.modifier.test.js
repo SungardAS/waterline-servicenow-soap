@@ -35,7 +35,9 @@ describe('Queryable Interface', function() {
         ////////////////////////////////////////////////////
 
         it('should return records with lessThan key', function(done) {
-          Queryable.Incident.find({ description: testName, short_description: uid, severity: { lessThan: 4 }}, function(err, incidents) {
+          Queryable.Incident.find({ description: testName, short_description: uid, severity: { lessThan: 4 }})
+          .sort('severity')
+          .exec(function(err, incidents) {
             assert(!err);
             assert(Array.isArray(incidents));
             assert(incidents.length === 3);
@@ -45,7 +47,9 @@ describe('Queryable Interface', function() {
         });
 
         it('should return records with symbolic <', function(done) {
-          Queryable.Incident.find({ description: testName, short_description: uid, severity: { '<': 4 }}, function(err, incidents) {
+          Queryable.Incident.find({ description: testName, short_description: uid, severity: { '<': 4 }})
+          .sort('severity')
+          .exec(function(err, incidents) {
             assert(!err);
             assert(Array.isArray(incidents));
             assert(incidents.length === 3);
@@ -132,7 +136,9 @@ describe('Queryable Interface', function() {
         ////////////////////////////////////////////////////
 
         it('should return records with lessThanOrEqual key', function(done) {
-          Queryable.Incident.find({ description: testName, short_description: uid, severity: { lessThanOrEqual: 4 }}, function(err, incidents) {
+          Queryable.Incident.find({ description: testName, short_description: uid, severity: { lessThanOrEqual: 4 }})
+          .sort('severity')
+          .exec(function(err, incidents) {
             assert(!err);
             assert(Array.isArray(incidents));
             assert(incidents.length === 4);
@@ -142,7 +148,9 @@ describe('Queryable Interface', function() {
         });
 
         it('should return records with symbolic usseverity <= usseverity', function(done) {
-          Queryable.Incident.find({ description: testName, short_description: uid, severity: { '<=': 4 }}, function(err, incidents) {
+          Queryable.Incident.find({ description: testName, short_description: uid, severity: { '<=': 4 }})
+          .sort('severity')
+          .exec(function(err, incidents) {
             assert(!err);
             assert(Array.isArray(incidents));
             assert(incidents.length === 4);
