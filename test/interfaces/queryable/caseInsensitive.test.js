@@ -70,7 +70,6 @@ describe('Queryable Interface', function() {
         Queryable.Incident.findByShort_description(uid)
         .sort('number')
         .exec(function(err, incidents) {
-          console.log(incidents);
           assert(incidents.length === 4);
           assert(incidents[0].sys_id);
           assert(incidents[0].description === 'tHeTest');
