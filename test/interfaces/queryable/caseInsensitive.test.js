@@ -67,7 +67,10 @@ describe('Queryable Interface', function() {
       });
 
       it('should work with findBy*()', function(done) {
-        Queryable.Incident.findByShort_description(uid, function(err, incidents) {
+        Queryable.Incident.findByShort_description(uid)
+        .sort('number')
+        .exec(function(err, incidents) {
+          console.log(incidents);
           assert(incidents.length === 4);
           assert(incidents[0].sys_id);
           assert(incidents[0].description === 'tHeTest');
@@ -104,7 +107,9 @@ describe('Queryable Interface', function() {
       ////////////////////////////////////////////////////
 
       it('contains should work in a case insensitive fashion by default', function(done) {
-        Queryable.Incident.find({ description: { contains: 'hete'}, short_description: uid }, function(err, incidents) {
+        Queryable.Incident.find({ description: { contains: 'hete'}, short_description: uid })
+        .sort('number')
+        .exec(function(err, incidents) {
           assert(incidents.length === 3);
           assert(incidents[0].sys_id);
           assert(incidents[0].description === 'tHeTest');
@@ -113,7 +118,9 @@ describe('Queryable Interface', function() {
       });
 
       it('startsWith should work in a case insensitive fashion by default', function(done) {
-        Queryable.Incident.find({ description: { startsWith: 'the'}, short_description: uid }, function(err, incidents) {
+        Queryable.Incident.find({ description: { startsWith: 'the'}, short_description: uid })
+        .sort('number')
+        .exec(function(err, incidents) {
           assert(incidents.length === 4);
           assert(incidents[0].sys_id);
           assert(incidents[0].description === 'tHeTest');
@@ -122,7 +129,9 @@ describe('Queryable Interface', function() {
       });
 
       it('endsWith should work in a case insensitive fashion by default', function(done) {
-        Queryable.Incident.find({ description: { endsWith: 'est'}, short_description: uid }, function(err, incidents) {
+        Queryable.Incident.find({ description: { endsWith: 'est'}, short_description: uid })
+        .sort('number')
+        .exec(function(err, incidents) {
           assert(incidents.length === 5);
           assert(incidents[0].sys_id);
           assert(incidents[0].description === 'tHeTest');
@@ -141,7 +150,9 @@ describe('Queryable Interface', function() {
       //});
 
       it('endsWith should actually enforce endswith', function(done) {
-        Queryable.Incident.find({ description: { endsWith: 'AR)H$daxx'}, short_description: uid }, function(err, incidents) {
+        Queryable.Incident.find({ description: { endsWith: 'AR)H$daxx'}, short_description: uid })
+        .sort('number')
+        .exec(function(err, incidents) {
           assert(incidents.length === 1);
           assert(incidents[0].sys_id);
           assert(incidents[0].description === 'AR)H$daxx');
@@ -174,7 +185,9 @@ describe('Queryable Interface', function() {
       ////////////////////////////////////////////////////
 
       it('should escape stars', function(done) {
-        Queryable.Incident.find({ description: '****Awesome****', short_description: uid }, function(err, incidents) {
+        Queryable.Incident.find({ description: '****Awesome****', short_description: uid })
+        .sort('number')
+        .exec(function(err, incidents) {
           assert(incidents.length === 1);
           assert(incidents[0].sys_id);
           assert(incidents[0].description === '****Awesome****');
@@ -183,7 +196,9 @@ describe('Queryable Interface', function() {
       });
 
       it('contains should work with stars in the name', function(done) {
-        Queryable.Incident.find({ description: { contains: '**Awesome**'}, short_description: uid }, function(err, incidents) {
+        Queryable.Incident.find({ description: { contains: '**Awesome**'}, short_description: uid })
+        .sort('number')
+        .exec(function(err, incidents) {
           assert(incidents.length === 1);
           assert(incidents[0].sys_id);
           assert(incidents[0].description === '****Awesome****');
