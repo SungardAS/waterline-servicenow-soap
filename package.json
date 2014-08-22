@@ -29,7 +29,7 @@
     "underscore.string": "^2.3.3",
     "async": "^0.9.0",
     "moment": "~2.7.0",
-    "waterline": "~0.10.0-rc15"
+    "waterline": "~0.10.5"
   },
   "devDependencies": {
     "waterline-adapter-tests": "~0.10.0",
