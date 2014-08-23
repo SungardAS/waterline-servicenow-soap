@@ -1,3 +1,5 @@
+/* @annotation:snippet common-tests */
+
 var assert = require('assert'),
     uuid = require('uuid'),
     _ = require('lodash');
@@ -30,21 +32,12 @@ describe('Update Interface', function() {
 
       /////////////////////////////////////////////////////
       // TEST METHODS
-      ////////////////////////////////////////////////////
-
-      it('should work in a case insensitve fashion by default', function(done) {
-        Queryable.Incident.find({short_description: uid}, function(err, incidents) {
-          assert(incidents.length === 4);
-          assert(incidents[0].sys_id);
-          done();
-        });
-      });
-    });
-
-    describe('.foo()', function() {
-
-      /////////////////////////////////////////////////////
-      // TEST METHODS
+      // 
+      // find a record that was just created
+      // update the record with lorem epson
+      // save 
+      // search 
+      // verify
       ////////////////////////////////////////////////////
 
       it('should work in a case insensitve fashion by default', function(done) {
