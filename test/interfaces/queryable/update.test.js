@@ -1,4 +1,4 @@
-/* @annotation:snippet common-tests */
+/* @annotation:tour unitTest */
 
 var assert = require('assert'),
     uuid = require('uuid'),
@@ -16,10 +16,9 @@ describe('Update Interface', function() {
     before(function(done) {
 
       var incidentsArray = [
-        { description: 'tHeTest', short_description: uid },
-        { description: 'thetest', short_description: uid },
-        { description: 'THETEST', short_description: uid  },
-        { description: 'tHeOtherTest', short_description: uid  }
+        { description: 'lorem epson 1', short_description: uid },
+        { description: 'lorem epson 2', short_description: uid },
+        { description: 'lorem epson 3', short_description: uid  }  
       ];
 
       Queryable.Incident.createEach(incidentsArray, function(err, incidents) {
@@ -29,26 +28,24 @@ describe('Update Interface', function() {
     });
 
     describe('.update()', function() {
-
-      /////////////////////////////////////////////////////
-      // TEST METHODS
-      // 
-      // find a record that was just created
-      // update the record with lorem epson
-      // save 
-      // search 
-      // verify
-      ////////////////////////////////////////////////////
-
-      it('should work in a case insensitve fashion by default', function(done) {
-        Queryable.Incident.find({short_description: uid}, function(err, incidents) {
-          assert(incidents.length === 4);
-          assert(incidents[0].sys_id);
+      
+      /**
+       * 
+       * find 
+       * update 
+       * assert true
+       * 
+       **/  
+                
+      it('should get a record and update it', function(done) {
+        Queryable.Incident.findOne({ description: 'lorem epson 1', short_description: uid }, function(err, incident) {
+          assert(incident.sys_id);
+          assert(incident.description === 'lorem epson 1');
+          assert(toString.call(incident.sys_updated_on) == '[object Date]');
           done();
         });
       });
-    });
-
-      
+        
+    });      
   });
 });

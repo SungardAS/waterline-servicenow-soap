@@ -4,7 +4,7 @@ The `readme.md` file is a great place to place a large intro to the project as a
 
 @annotation:file CHANGELOG.md
 #The CHANGELOG.md file
-A 'CHANGELOG.md' is a file which contains a curated, chronologically ordered list of notable changes for each version of an open source project.
+The 'CHANGELOG.md' is a file which contains a curated, chronologically ordered list of notable changes for each version of an open source project.
 
 see http://keepachangelog.com
 
@@ -14,6 +14,9 @@ The best way to get started is to watch a video of the demo **impress.js** prese
 at the top left of the screen to see it in your browser or run the video below. Feel free to enlarge the window.
 
 http://youtu.be/Aj5mFDihfkw?rel=0&showinfo=0
+
+@annotation:tour unitTest
+#This is a tour annotation
 
 @annotation:snippet common-views
 #Common Views
