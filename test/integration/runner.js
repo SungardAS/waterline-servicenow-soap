@@ -1,3 +1,5 @@
+/* @annotation:tour runner */
+
 /**
  * Run integration tests
  *
@@ -7,7 +9,6 @@
  * declared in this adapter's `package.json` file
  * are tested. (e.g. `queryable`, `semantic`, etc.)
  */
-
 
 /**
  * Module dependencies
@@ -70,8 +71,10 @@ interfaces.forEach(function(interface) {
 });
 
 // Build a Mocha Runner
+// if you need to limit, add a grep with the test name
 var test = new mocha(_.merge({
-  timeout: 20000
+  timeout: 20000, 
+     //grep: "update"  
 }, {}));
 
 // Set Global Placeholders for Ontologies

@@ -18,6 +18,15 @@ http://youtu.be/Aj5mFDihfkw?rel=0&showinfo=0
 @annotation:tour unitTest
 #This is a tour annotation
 
+@annotation:tour runner
+#This drives the mocha tests
+Run integration tests 
+Uses the `waterline-adapter-tests` module to
+run mocha tests against the appropriate version
+of Waterline.  Only the interfaces explicitly
+declared in this adapter's `package.json` file
+are tested. (e.g. `queryable`, `semantic`, etc.)
+
 @annotation:snippet common-views
 #Common Views
 Now let's display the view.
