@@ -23,12 +23,9 @@ var Adapter = require('../../waterline-servicenow-soapAdapter');
 var Path = require('path');
 var _ = require('lodash');
 
-
-
 // Grab targeted interfaces from this adapter's `package.json` file:
 var package = {};
 var interfaces = ['queryable'];
-
 
 log.info('Testing `' + package.name + '`, a Sails/Waterline adapter.');
 log.info('Running `waterline-adapter-tests` against ' + interfaces.length + ' interfaces...');
@@ -37,9 +34,6 @@ console.log();
 log('Latest draft of Waterline adapter interface spec:');
 log('http://links.sailsjs.org/docs/plugins/adapters/interfaces');
 console.log();
-
-
-
 
 // Attach config to adapter
 // this.adapter.config = this.config;
@@ -72,9 +66,9 @@ interfaces.forEach(function(interface) {
 
 // Build a Mocha Runner
 // if you need to limit, add a grep with the test name
+// grep: "update"  
 var test = new mocha(_.merge({
-  timeout: 20000, 
-     //grep: "update"  
+  timeout: 20000  
 }, {}));
 
 // Set Global Placeholders for Ontologies

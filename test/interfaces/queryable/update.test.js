@@ -6,7 +6,7 @@ var assert = require('assert'),
 
 describe('Update Interface', function() {
 
-  describe('lorem epson', function() {
+  describe('update', function() {
     var uid = uuid();
 
     /////////////////////////////////////////////////////
@@ -31,19 +31,17 @@ describe('Update Interface', function() {
       
       /**
        * 
-       * find 
-       * update 
-       * assert true
-       * <xsd:element maxOccurs="1" minOccurs="1" name="short_description" type="xsd:string"/>
+	   * http://wiki.servicenow.com/index.php?title=Getting_Started_with_REST#Update_the_Incident  
+	   * 
+	   * <xsd:element maxOccurs="1" minOccurs="1" name="short_description" type="xsd:string"/>
 	   * <xsd:element maxOccurs="1" minOccurs="1" name="sys_id" type="xsd:string"/>
 	   * <xsd:element maxOccurs="1" minOccurs="1" name="company" type="xsd:string"/>
 	   * <xsd:element maxOccurs="1" minOccurs="1" name="caller_id" type="xsd:string"/>
 	   * <xsd:element maxOccurs="1" minOccurs="1" name="u_task_for" type="xsd:string"/>
 	   * <xsd:element maxOccurs="1" minOccurs="1" name="u_task_table" type="xsd:string"/>
-	   * http://wiki.servicenow.com/index.php?title=Getting_Started_with_REST#Update_the_Incident  
        **/  
                 
-      it('should get a record and update it original', function(done) {  
+      it('should get a record and update the description', function(done) {  
         Queryable.Incident.findOne({ description: 'lorem epson 1', short_description: uid }, function(err, incident) {
           incident.description = "updated description 2";
             incident.save(function(inc){
@@ -54,7 +52,6 @@ describe('Update Interface', function() {
             });  
         });
       });
-        
     });      
   });
 });
