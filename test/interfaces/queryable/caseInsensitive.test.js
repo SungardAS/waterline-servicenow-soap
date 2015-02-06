@@ -26,8 +26,7 @@ describe('Queryable Interface', function() {
         	if(err) return cb(err);
         	cb();
       	});
-      }, done);  
-      
+      }, done);
     });
 
     describe('.findOne()', function() {
