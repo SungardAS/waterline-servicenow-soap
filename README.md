@@ -88,7 +88,7 @@ This adapter exposes the following methods:
 ###### `update()`
 
 + **Status**
-  + Planned
+  + Implemented
 
 ###### `destroy()`
 
@@ -103,6 +103,9 @@ This adapter exposes the following methods:
 
 
 ### Running the tests
+
+All tests are run against publically available ServiceNow [sandbox
+instances](https://wiki.servicenow.com/index.php?title=ServiceNow_Public_Demo_Sandbox).
 
 ```sh
 $ npm test

@@ -1,6 +1,6 @@
 {
   "name": "waterline-servicenow-soap",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "waterline-servicenow-soap adapter for Sails / Waterline",
   "main": "lib/adapter.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "underscore.string": "^2.3.3",
     "async": "^0.9.0",
     "moment": "~2.7.0",
-    "waterline": "~0.10.0-rc15"
+    "waterline": "~0.10.5"
   },
   "devDependencies": {
     "waterline-adapter-tests": "~0.10.0",
