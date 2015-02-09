@@ -1,5 +1,7 @@
 ![image_squidhome@2x.png](http://i.imgur.com/RIvu9.png)
 
+![Build Status](https://travis-ci.org/kmcgrath/waterline-servicenow-soap.svg?branch=develop)
+
 # waterline-servicenow-soap
 
 Provides easy access to ServiceNow's SOAP resources from Sails.js & Waterline.
