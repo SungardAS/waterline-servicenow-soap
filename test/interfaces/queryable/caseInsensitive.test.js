@@ -80,6 +80,13 @@ describe('Queryable Interface', function() {
         });
       });
 
+      it('should accurately count records', function(done) {
+        Queryable.Incident.count({ description: 'theothertest', short_description: uid }, function(err, count) {
+          assert(!err);
+          assert(parseInt(count) === 1);
+          done();
+        });
+      });
     });
 
     describe('special classified queries', function() {
@@ -113,9 +120,9 @@ describe('Queryable Interface', function() {
         .sort('number')
         .exec(function(err, incidents) {
           assert(incidents.length === 3);
-          // console.log(incidents[0].sys_id);  
-          // console.log(incidents[0].description);  
-          // console.log(incidents);         
+          // console.log(incidents[0].sys_id);
+          // console.log(incidents[0].description);
+          // console.log(incidents);
           assert(incidents[0].sys_id);
           assert(incidents[0].description === 'tHeTest');
           done();
