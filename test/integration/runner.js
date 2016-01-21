@@ -41,7 +41,7 @@ global.Connections = {
   'test': {
     url: {
       protocol: 'https',
-      host: 'demo003.service-now.com',
+      host: 'demo004.service-now.com',
     },
     username: 'admin',
     password: 'admin',
