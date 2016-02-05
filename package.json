@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/kmcgrath/waterline-servicenow-soap.git"
+    "url": "git://github.com/SungardAS/waterline-servicenow-soap.git"
   },
   "keywords": [
     "service-now",
@@ -20,8 +20,11 @@
     "sails.js",
     "plugin"
   ],
-  "author": "kmcgrath",
-  "license": "MIT",
+  "author": {
+    "name": "Kevin McGrath",
+    "email": "kevin.mcgrath@sungardas.com"
+  },
+  "license": "Apache-2.0",
   "readmeFilename": "README.md",
   "dependencies": {
     "soap": "^0.4.5",
