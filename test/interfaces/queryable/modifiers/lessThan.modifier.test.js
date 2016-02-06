@@ -68,7 +68,7 @@ describe('Queryable Interface', function() {
         var testName = 'lessThan dates test';
 
         var uid = uuid();
-        var end = new Date(Date.now()+100000);
+        var end = new Date(Date.now()+1000000);
 
         before(function(done) {
           var incidents = [];
@@ -88,18 +88,18 @@ describe('Queryable Interface', function() {
         ////////////////////////////////////////////////////
         it('should find 3 records created with symbolic <', function(done) {
           Queryable.Incident.find({ short_description: uid, sys_created_on: {'<': end} }, function(err, incidents) {
-            assert(!err);
+            assert.ifError(err);
             assert(Array.isArray(incidents));
-            assert(incidents.length === 3);
+            assert.equal(incidents.length,3);
             done();
           });
         });
 
         it('should find 3 records created with lessThan key', function(done) {
           Queryable.Incident.find({ short_description: uid, sys_created_on: {lessThan: end} }, function(err, incidents) {
-            assert(!err);
+            assert.ifError(err);
             assert(Array.isArray(incidents));
-            assert(incidents.length === 3);
+            assert.equal(incidents.length,3);
             done();
           });
         });
@@ -190,20 +190,20 @@ describe('Queryable Interface', function() {
         // TEST METHODS
         ////////////////////////////////////////////////////
 
-        it('should find 3 records with symbolic <', function(done) {
+        it('should find 3 records with symbolic <=', function(done) {
           Queryable.Incident.find({ short_description: uid, sys_created_on: {'<=': end} }, function(err, incidents) {
-            assert(!err);
+            assert.ifError(err);
             assert(Array.isArray(incidents));
-            assert(incidents.length === 3);
+            assert.equal(incidents.length,3);
             done();
           });
         });
 
-        it('should find 3 records with lessThan key', function(done) {
+        it('should find 3 records with lessThanOrEqual key', function(done) {
           Queryable.Incident.find({ short_description: uid, sys_created_on: {lessThanOrEqual: end} }, function(err, incidents) {
-            assert(!err);
+            assert.ifError(err);
             assert(Array.isArray(incidents));
-            assert(incidents.length === 3);
+            assert.equal(incidents.length,3);
             done();
           });
         });
