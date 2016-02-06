@@ -1,6 +1,12 @@
 ![image_squidhome@2x.png](http://i.imgur.com/RIvu9.png)
 
 [![Build Status](https://travis-ci.org/SungardAS/waterline-servicenow-soap.svg?branch=develop)](https://travis-ci.org/SungardAS/waterline-servicenow-soap)
+[![Code
+Climate](https://codeclimate.com/github/SungardAS/waterline-servicenow-soap/badges/gpa.svg?branch=master)](https://codeclimate.com/github/SungardAS/waterline-servicenow-soap?branch=master)
+[![Coverage
+Status](https://coveralls.io/repos/SungardAS/waterline-servicenow-soap/badge.svg?branch=master)](https://coveralls.io/r/SungardAS/waterline-servicenow-soap?branch=master)
+[![Dependency
+Status](https://david-dm.org/SungardAS/waterline-servicenow-soap.svg?branch=master)](https://david-dm.org/SungardAS/waterline-servicenow-soap?branch=master)
 
 # waterline-servicenow-soap
 
