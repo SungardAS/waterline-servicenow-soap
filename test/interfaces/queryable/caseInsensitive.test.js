@@ -61,6 +61,14 @@ describe('Queryable Interface', function() {
       // TEST METHODS
       ////////////////////////////////////////////////////
 
+      it.only('should work if no records are found', function(done) {
+        Queryable.Incident.find({short_description: uid+"__null__"}, function(err, incidents) {
+          assert.ifError(err);
+          assert(incidents.length === 0);
+          done();
+        });
+      });
+
       it('should work in a case insensitve fashion by default', function(done) {
         Queryable.Incident.find({short_description: uid}, function(err, incidents) {
           assert(incidents.length === 4);
