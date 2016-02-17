@@ -61,7 +61,7 @@ describe('Queryable Interface', function() {
       // TEST METHODS
       ////////////////////////////////////////////////////
 
-      it.only('should work if no records are found', function(done) {
+      it('should work if no records are found', function(done) {
         Queryable.Incident.find({short_description: uid+"__null__"}, function(err, incidents) {
           assert.ifError(err);
           assert(incidents.length === 0);
