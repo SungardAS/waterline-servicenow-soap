@@ -1,6 +1,6 @@
 {
   "name": "waterline-servicenow-soap",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "waterline-servicenow-soap adapter for Sails / Waterline",
   "main": "lib/adapter.js",
   "scripts": {
@@ -27,18 +27,20 @@
   "license": "Apache-2.0",
   "readmeFilename": "README.md",
   "dependencies": {
-    "soap": "^0.4.5",
-    "lodash": "^2.4.1",
-    "underscore.string": "^2.3.3",
-    "async": "^0.9.0",
-    "moment": "~2.7.0",
-    "waterline": "~0.10.5"
+    "async": "^1.5.2",
+    "lodash": "^4.2.1",
+    "moment": "^2.11.2",
+    "soap": "^0.12.0",
+    "underscore.string": "^3.2.3",
+    "waterline": "^0.10.0"
   },
   "devDependencies": {
-    "waterline-adapter-tests": "~0.10.0",
-    "mocha": "*",
     "captains-log": "~0.11.0",
-    "uuid": "~1.4.1"
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
+    "mocha": "*",
+    "uuid": "~1.4.1",
+    "waterline-adapter-tests": "~0.10.0"
   },
   "waterlineAdapter": {
     "type": "waterline-servicenow-soap",

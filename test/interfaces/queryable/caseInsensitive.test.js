@@ -61,6 +61,14 @@ describe('Queryable Interface', function() {
       // TEST METHODS
       ////////////////////////////////////////////////////
 
+      it('should work if no records are found', function(done) {
+        Queryable.Incident.find({short_description: uid+"__null__"}, function(err, incidents) {
+          assert.ifError(err);
+          assert(incidents.length === 0);
+          done();
+        });
+      });
+
       it('should work in a case insensitve fashion by default', function(done) {
         Queryable.Incident.find({short_description: uid}, function(err, incidents) {
           assert(incidents.length === 4);
@@ -82,7 +90,7 @@ describe('Queryable Interface', function() {
 
       it('should accurately count records', function(done) {
         Queryable.Incident.count({ description: 'theothertest', short_description: uid }, function(err, count) {
-          if (err.toJSON().raw == "aggregate not enabled") {
+          if (err && err.toJSON().raw == "aggregate not enabled") {
             done();
             return;
           }

@@ -1,9 +1,10 @@
-.\#*
 *#
-node_modules
-ssl
-.DS_STORE
 *~
+.DS_STORE
+.\#*
 .idea
+coverage
 nbproject
+node_modules
 npm-debug.log
+ssl
